@@ -1,0 +1,8 @@
+package kr.or.iei.controller;
+
+public class HandlerMapping {
+	
+	public Controller getController(String uri) {
+		
+	}
+}

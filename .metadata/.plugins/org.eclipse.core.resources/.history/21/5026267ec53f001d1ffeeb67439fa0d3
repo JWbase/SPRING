@@ -1,0 +1,11 @@
+package kr.or.iei.vo;
+
+public class TestClass3 {
+
+	public TestClass3() {
+		super();
+		System.out.println("TestClass3 객체 생성 완료!");
+	}
+	
+
+}

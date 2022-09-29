@@ -1,0 +1,13 @@
+package kr.or.iei.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class LoginController implements Controller {
+
+	@Override
+	public String request(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

@@ -1,0 +1,8 @@
+package kr.or.iei.vo;
+
+public class LgTV {
+	public void trunOn() {
+		System.out.println("LGTV ----- 전원을 켠다");
+	}
+
+}

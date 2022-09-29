@@ -1,0 +1,8 @@
+package kr.or.iei.vo;
+
+public class SamsungTV {
+	public void powerOn() {
+
+	}
+
+}

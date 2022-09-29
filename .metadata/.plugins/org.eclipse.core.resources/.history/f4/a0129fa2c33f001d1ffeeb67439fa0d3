@@ -1,0 +1,9 @@
+package kr.or.iei.test;
+
+public class TestClass1 {
+
+	public TestClass1() {
+		super();
+	}
+
+}

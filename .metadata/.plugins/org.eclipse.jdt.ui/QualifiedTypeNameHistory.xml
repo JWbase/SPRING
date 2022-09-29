@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="kr.or.iei.vo.TV"/>
+<fullyQualifiedTypeName name="kr.or.iei.vo.SamsungTV"/>
+<fullyQualifiedTypeName name="kr.or.iei.vo.LgTV"/>
+<fullyQualifiedTypeName name="kr.or.iei.vo.BeanFactory"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.GenericApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
+<fullyQualifiedTypeName name="kr.or.iei.vo.MemberMgr"/>
+<fullyQualifiedTypeName name="kr.or.iei.vo.Member"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="kr.or.iei.controller.LoginController"/>
+<fullyQualifiedTypeName name="kr.or.iei.controller.SearchController"/>
+<fullyQualifiedTypeName name="kr.or.iei.controller.HandlerMapping"/>
+<fullyQualifiedTypeName name="kr.or.iei.controller.Controller"/>
+<fullyQualifiedTypeName name="kr.or.iei.controller.ViewResolver"/>
+</qualifiedTypeNameHistroy>
