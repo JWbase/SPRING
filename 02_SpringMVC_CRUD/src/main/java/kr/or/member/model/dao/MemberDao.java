@@ -59,8 +59,8 @@ public class MemberDao {
 	}
 
 	public ArrayList<Member> selectAllMember() {
-		String qeury = "select * from member_tbl";
-		List<Member> list = jdbcTemplate.query(qeury, new MemberRowMapper());
+		String query = "select * from member_tbl";
+		List<Member> list = jdbcTemplate.query(query, new MemberRowMapper());
 		return (ArrayList<Member>) list;
 	}
 
