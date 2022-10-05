@@ -1,5 +1,7 @@
 package kr.or.board.model.vo;
 
+import java.util.ArrayList;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,4 +15,5 @@ public class Board {
 	private String boardWriter;
 	private String boardContent;
 	private String boardDate;
+	private ArrayList<FileVo> fileList;
 }

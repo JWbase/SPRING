@@ -5,7 +5,32 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-09-29T07:00:00Z</updated>
+  <updated>2022-10-04T08:00:00Z</updated>
+  <entry>
+    <title>This Week in Spring - October 4th, 2022</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/04/this-week-in-spring-october-4th-2022" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-10-04:4933</id>
+    <updated>2022-10-04T08:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! It&amp;rsquo;s October 4th, 2022, and I&amp;rsquo;m in Austin, TX, for the new version of show formerly known as the Kafka Summit, here to talk to folks about the amazing opportunities for Spring Boot and Apache Kafka. On the 12th, I&amp;rsquo;ll be in Antwerp, Belgium, for the amazing Devoxx show. On October 17-20th, I&amp;rsquo;ll be in Las Vegas, for the new version of JavaOne. And, well, there&amp;rsquo;s more but I can&amp;rsquo;t say exactly. Stay tuned!&lt;/p&gt;
+&lt;p&gt;And as for now, well, I&amp;rsquo;m excited to be here! We&amp;rsquo;ve got a ton of cool stuff to cover this week, so let&amp;rsquo;s dive right into it!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/29/a-bootiful-podcast-thought-leader-chris-richardson-and-no-i-m-not-using-that-title-ironically"&gt;A Bootiful Podcast: thought leader Chris Richardson (and no, I&amp;rsquo;m not using that title ironically!)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/713846988/0/baeldung~Getting-a-URL-Attribute-Value-in-Thymeleaf"&gt;Getting a URL Attribute Value in Thymeleaf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://blog.rabbitmq.com/posts/2022/07/rabbitmq-3-11-feature-preview-super-streams/"&gt;RabbitMQ 3.11 Feature Preview: Super Streams&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/rdehuyss/status/1577208092890046465"&gt;Did you see that JobRunr has already been updated to work with Spring Boot 3.0? Now, obviously, Spring Boot 3.0 hasn&amp;rsquo;t gone GA yet, and obviouslyt there&amp;rsquo;s no word on whether the new support includes Spring Boot 3&amp;rsquo;s AOT engine, but seeing as how they already have working Spring Native support, I&amp;rsquo;d be surprised if this isn&amp;rsquo;t coming soon&amp;hellip;!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/713419496/0/baeldung~SEDA-With-Spring-Integration-and-Apache-Camel"&gt;SEDA (Staged Event Driven Architecture) with Spring Integration and Apache Camel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.infoq.com/articles/java-virtual-threads/"&gt;Virtual Threads: New Foundations for High-Scale Java Applications&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/sam_brannen/status/1575815833972273152?s=12&amp;t=BKhmm4L_Ff0IpnP_sZ6vkA"&gt;&lt;code&gt;start.junit.org&lt;/code&gt;&lt;/a&gt; is my &lt;em&gt;fourth&lt;/em&gt; favorite place on the internet!&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.infoq.com/news/2022/09/spring-boot-migrator/?itm_source=infoq&amp;itm_medium=popular_widget&amp;itm_campaign=popular_content_list&amp;itm_content="&gt;Introducing Spring Boot Migrator&lt;/a&gt; - this looks like a thoughtful, well-laid out introduction!&lt;/li&gt;
+  &lt;li&gt;I&amp;rsquo;ve been really enjoying the niceties of Spring Boot 3&amp;rsquo;s robust AOT engine, making it dead simple to convert a Spring Boot application work with GraalVM native images. Check out this Git repository for a pretty detailed example using &lt;a href="https://github.com/spring-tips/kafka/tree/main/producer"&gt;Spring Boot, Apache Kafka, Spring Integration, and Spring Cloud Stream with GraalVM&lt;/a&gt;. You can git clone that and then run &lt;code&gt;mvn -Pnative -DskipTests clean package&lt;/code&gt; to get the application as a native binary. there are still months yet before Spring Boot 3 GA, so the fact that everything works as well as it does is amazing!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Want to meet more amazing people in our ecosystem, like Chris? SpringOne 2022 is almost here! I feel like it¡¯s that anxious, exciting time before, sort of important holiday where you get given gifts! And with it, Spring Boot 3 and Spring Framework 6. We¡¯re going to be announcing everything right here on the Spring blog, of course, but if you want a chance to learn from the source, then I hope you¡¯ll join us 6-8 December 2022, right here in my hometown of San Francisco, my favorite west coast city in the USA, and my hometown. (Psst.: If you register now, there¡¯s a $200 discount from the pass price with this code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.)&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>A Bootiful Podcast:   thought leader Chris Richardson (and no, I'm not using that title ironically!)</title>
     <link rel="alternate" href="https://spring.io/blog/2022/09/29/a-bootiful-podcast-thought-leader-chris-richardson-and-no-i-m-not-using-that-title-ironically" />
@@ -857,26 +882,6 @@ Artem&lt;/p&gt;
   &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/712177184/0/baeldung~Map-a-JSON-POST-to-Multiple-Spring-MVC-Parameters/"&gt;Map a JSON POST to Multiple Spring MVC Parameters&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;I&amp;rsquo;m honored to be included in a list of &lt;a href="https://biztechmagazine.com/article/2022/09/30-small-business-it-influencers-worth-following-2022"&gt;30 Small Business IT Influencers Worth Following in 2022&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security 6.0.0-M7 and 5.8.0-M3 are released</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/19/spring-security-6-0-0-m7-and-5-8-0-m3-are-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Marcus Hert Da Coregio</name>
-    </author>
-    <id>tag:spring.io,2022-09-19:4912</id>
-    <updated>2022-09-19T16:00:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Security 6.0.0-M7 and 5.8.0-M3 are available now.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;See the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/6.0.0-M7"&gt;6.0.0-M7&lt;/a&gt; and &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.8.0-M3"&gt;5.8.0-M3&lt;/a&gt; release notes for more details.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-security/reference/"&gt;Reference&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

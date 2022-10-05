@@ -65,9 +65,42 @@ public class BoardDao {
 
 	public ArrayList<FileVo> selectFiles(int boardNo) {
 		String query = "select * from file_tbl where board_no = ?";
-		Object[] params = {boardNo};
+		Object[] params = { boardNo };
 		List list = jdbcTemplate.query(query, params, new FileRowMapper());
-		return null;
+		return (ArrayList<FileVo>) list;
+	}
+
+	public FileVo selectOneFile(int fileNo) {
+		String query = "select * from file_tbl where file_no = ?";
+		Object[] params = { fileNo };
+		List list = jdbcTemplate.query(query, params, new FileRowMapper());
+		if (list.isEmpty()) {
+			return null;
+		} else {
+			FileVo f = (FileVo) list.get(0);
+			return f;
+		}
+	}
+
+	public int updateBoard(Board b) {
+		String query = "update board set board_title= ?, board_content=? where board_no=?";
+		Object[] params = { b.getBoardTitle(), b.getBoardContent(), b.getBoardNo() };
+		int result = jdbcTemplate.update(query, params);
+		return result;
+	}
+
+	public int deleteFile(int fileNo) {
+		String query = "delete from file_tbl where file_no=?";
+		Object[] parmas = { fileNo };
+		int result = jdbcTemplate.update(query, parmas);
+		return result;
+	}
+
+	public int deleteBoard(int boardNo) {
+		String query = "delete from board where board_no = ?";
+		Object[] parmas = {boardNo};
+		int result = jdbcTemplate.update(query, parmas);
+		return result;
 	}
 
 }
