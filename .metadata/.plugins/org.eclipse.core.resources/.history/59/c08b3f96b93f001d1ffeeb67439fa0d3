@@ -1,6 +1,0 @@
-package kr.or.iei.vo;
-
-public class MemberMgr {
-	private Member m;
-
-}

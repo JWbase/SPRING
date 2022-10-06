@@ -1,7 +1,0 @@
-package kr.or.iei.vo;
-
-public interface TV {
-	public void powerOn() {
-		
-	}
-}

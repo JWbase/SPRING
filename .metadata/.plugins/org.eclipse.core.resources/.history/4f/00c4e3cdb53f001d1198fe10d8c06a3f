@@ -1,8 +1,0 @@
-package kr.or.iei.vo;
-
-public class BeanFactory {
-	public TV getBean(String name) {
-		
-	}
-		
-}

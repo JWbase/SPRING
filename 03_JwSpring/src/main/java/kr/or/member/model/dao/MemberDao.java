@@ -21,8 +21,8 @@ public class MemberDao {
 
 	public Member loginMember(Member m) {
 		String query = "select * from member where member_id = ? , member_pw = ?";
-		Object[] params = {m.getMemberId(), m.getMemberPw()};
-		List list = jdbcTemplate.query(query, params );
+		Object[] params = { m.getMemberId(), m.getMemberPw() };
+		List list = jdbcTemplate.query(query, params);
 		return null;
 	}
 

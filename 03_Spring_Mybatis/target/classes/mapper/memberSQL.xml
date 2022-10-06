@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+	<select id="selectOneMember" parameterType="m" resultType="m">
+		select
+		member_no as memberNo,
+		member_id as memberId,
+		member_pw as memberPw,
+		member_name as memberName,
+		phone,
+		email
+		from member_tbl where member_id = #{memberId} and member_pw = #{memberPw}
+	</select>
+
+	<select id="selectAllMember" resultType="m">
+		select
+		member_no as memberNo,
+		member_id as memberId,
+		member_pw as memberPw,
+		member_name as memberName,
+		phone,
+		email
+		from member_tbl
+	</select>
+
+	<insert id="insertMember" parameterType="m"> <!-- insert / update / delete는 무조건 int형식이기 때문에 결과처리 안적음 -->
+		insert into member_tbl
+		values(member_seq.nextval,#{memberId},#{memberPw},#{memberName},#{phone},#{email})
+	</insert>
+	
+	<select id="selectOneMemberId" resultType="m" parameterType="string">
+		select
+			member_no as memberNo,
+		member_id as memberId,
+		member_pw as memberPw,
+		member_name as memberName,
+		phone,
+		email
+		from member_tbl where member_id = #{_parameter}
+	</select>
+	
+	<update id="updateMember" parameterType="m">
+		update member_tbl 
+		set member_pw = #{memberPw}, 
+		phone = #{phone} 
+		where member_id = #{memberId}
+	</update>
+	
+	<delete id="deleteMember" parameterType="string">
+		delete from member_tbl
+		where member_id = #{memberId}
+	</delete>
+	
+	<select id="selectMemberName" parameterType="string" resultType="m">
+		select 
+			member_no as memberNo,
+			member_id as memberId,
+			member_pw as memberPw,
+			member_name as memberName,
+			phone,
+			email
+		 from member_tbl
+		where member_name like '%'||#{memberName}||'%'
+	</select>
+</mapper>

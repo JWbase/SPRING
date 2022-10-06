@@ -5,7 +5,73 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-10-04T08:00:00Z</updated>
+  <updated>2022-10-05T10:08:06Z</updated>
+  <entry>
+    <title>Spring Shell 2.1.2 and 3.0.0-M1 are now available</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/05/spring-shell-2-1-2-and-3-0-0-m1-are-now-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Janne Valkealahti</name>
+    </author>
+    <id>tag:spring.io,2022-10-05:4935</id>
+    <updated>2022-10-05T10:08:06Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Shell &lt;code&gt;2.1.2&lt;/code&gt; and &lt;code&gt;3.0.0-M1&lt;/code&gt; has been released and is now available from &lt;a href="https://repo.spring.io/release"&gt;https://repo.spring.io/release&lt;/a&gt;, Maven Central and &lt;a href="https://repo.spring.io/milestone"&gt;https://repo.spring.io/milestone&lt;/a&gt; respectively.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;3.0.0-M1&lt;/code&gt; is first milestone which builds on Spring Boot 3.x and requires JDK 17.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href="https://github.com/spring-projects/spring-shell/releases/tag/v2.1.2"&gt;release notes 2.1.2&lt;/a&gt; and &lt;a href="https://github.com/spring-projects/spring-shell/releases/tag/v3.0.0-M1"&gt;release notes 3.0.0-M1&lt;/a&gt; for more details.&lt;/p&gt;
+&lt;p&gt;Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-shell/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-shell"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-shell/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-shell/docs/2.1.2/site/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Batch 5.0.0-M7 available now!</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/05/spring-batch-5-0-0-m7-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Mahmoud Ben Hassine</name>
+    </author>
+    <id>tag:spring.io,2022-10-05:4934</id>
+    <updated>2022-10-05T08:00:00Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team and all contributors, I am pleased to announce that Spring Batch &lt;code&gt;5.0.0-M7&lt;/code&gt; is now available from our &lt;a href="https://repo.spring.io/milestone"&gt;milestone repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The main theme of this milestone is the improvement of job parameters handling in Spring Batch. Two main changes were introduced in this release:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Add support to use any type as a job parameter&lt;/li&gt;
+  &lt;li&gt;Improve job parameters conversion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This blog post walks through these two major changes in details. For the complete list of changes, please check the &lt;a href="https://github.com/spring-projects/spring-batch/releases/tag/5.0.0-M7"&gt;release notes&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#add-support-to-use-any-type-as-a-job-parameter" class="anchor" name="add-support-to-use-any-type-as-a-job-parameter"&gt;&lt;/a&gt;Add support to use any type as a job parameter&lt;/h2&gt;
+&lt;p&gt;Up to version 4, Spring Batch supported only 4 types that can be used as job parameters, which are &lt;code&gt;long&lt;/code&gt;, &lt;code&gt;double&lt;/code&gt;, &lt;code&gt;String&lt;/code&gt; and &lt;code&gt;Date&lt;/code&gt;. While this was convenient to simplify job parameters handling on the framework&amp;rsquo;s side, it turns out to be constraining on the user&amp;rsquo;s side. For instance, what if one wants to use a &lt;code&gt;boolean&lt;/code&gt; or a custom type as a job parameter? This required additional conversions to one of the supported types in Spring Batch, which quickly became inconvenient to users.&lt;/p&gt;
+&lt;p&gt;In this release, we have added support to use any type as a job parameter. The main change behind this improvement is the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint diff"&gt;---public class JobParameter implements Serializable {&#xD;
++++public class JobParameter&amp;lt;T&amp;gt; implements Serializable {&#xD;
+&#xD;
+---   private Object parameter;&#xD;
++++   private T value;&#xD;
+&#xD;
+---   private ParameterType parameterType;&#xD;
++++   private Class&amp;lt;T&amp;gt; type;&#xD;
+&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This change has an impact on how job parameters are persisted in the database. Please check &lt;a href="https://github.com/spring-projects/spring-batch/wiki/Spring-Batch-5.0-Migration-Guide#column-change-in-batch_job_execution_params"&gt;the migration guide&lt;/a&gt; for database schema changes. The fully qualified name of the type of the parameter is now persisted as a &lt;code&gt;String&lt;/code&gt;, as well as the parameter value. String literals are converted to the parameter types with the standard Spring conversion service. The standard conversion service can be enriched with any required converter to convert user specific types to and from String literals.&lt;/p&gt;&lt;h2&gt;&lt;a href="#improve-job-parameters-conversion" class="anchor" name="improve-job-parameters-conversion"&gt;&lt;/a&gt;Improve job parameters conversion&lt;/h2&gt;
+&lt;p&gt;The default notation of job parameters in v4 was specified as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt;[+|-]parameterName(parameterType)=parameterValue
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;where &lt;code&gt;parameterType&lt;/code&gt; is one of &lt;code&gt;[string,long,double,date]&lt;/code&gt;. While this notation was concise, it showed several limitations as it does not play well with environment variables and is not friendly with Spring Boot.&lt;/p&gt;
+&lt;p&gt;In v5, we have changed the default notation as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt;parameterName=parameterValue,parameterType,identificationFlag
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;where &lt;code&gt;parameterType&lt;/code&gt; is the fully qualified name of the type of the parameter. For example, the following key/value pair:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt;schedule.date=2022-12-12,java.time.LocalDate
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;will be converted to an identifying job parameter of type &lt;code&gt;java.time.LocalDate&lt;/code&gt; with the value &lt;code&gt;2022-12-12&lt;/code&gt;. Note how the identification flag is optional and defaults to &lt;code&gt;true&lt;/code&gt;. This new default notation is well suited for the majority of use cases, but it might not be convenient when the value contains a comma for example. For this reason, we have introduced a new &amp;ldquo;extended&amp;rdquo; notation that is inspired by Spring Boot&amp;rsquo;s &lt;a href="https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.application-json"&gt;Json Application Properties&lt;/a&gt; and which is specified as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt;parameterName=&amp;#39;{&amp;quot;value&amp;quot;: &amp;quot;parameterValue&amp;quot;, &amp;quot;type&amp;quot;:&amp;quot;parameterType&amp;quot;, &amp;quot;identifying&amp;quot;: &amp;quot;booleanValue&amp;quot;}&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;where &lt;code&gt;parameterType&lt;/code&gt; is the fully qualified name of the type of the parameter. Spring Batch provides the &lt;code&gt;JsonJobParametersConverter&lt;/code&gt; to support this notation. It is of course possible to support any other notation by implementing the strategy interface &lt;code&gt;JobParametersConverter&lt;/code&gt; and registering the custom implementation in the job repository and job explorer.&lt;/p&gt;
+&lt;p&gt;We believe these two major changes of job parameters handling in Spring Batch are more convenient, more flexible and less prone to errors.&lt;/p&gt;&lt;h2&gt;&lt;a href="#feedback" class="anchor" name="feedback"&gt;&lt;/a&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;I would like to thank all contributors who had a role in this release! As we continue our work on Spring Batch 5, we look forward to your feedback on &lt;a href="https://github.com/spring-projects/spring-batch/issues"&gt;Github&lt;/a&gt;, &lt;a href="https://twitter.com/springbatch"&gt;Twitter&lt;/a&gt; and &lt;a href="https://stackoverflow.com/questions/tagged/spring-batch"&gt;StackOverflow&lt;/a&gt;.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-batch"&gt;Spring Batch Home&lt;/a&gt;|&lt;a href="https://github.com/spring-projects/spring-batch"&gt;Source on Github&lt;/a&gt;|&lt;a href="https://docs.spring.io/spring-batch/docs/5.0.0-M7/reference/html/index-single.html"&gt;Reference documentation&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - October 4th, 2022</title>
     <link rel="alternate" href="https://spring.io/blog/2022/10/04/this-week-in-spring-october-4th-2022" />
@@ -838,50 +904,6 @@ Artem&lt;/p&gt;
 &lt;p&gt;In the next milestones, we will consider how we can adapt our current arrangement with important themes in Spring Boot 3.0: GraalVM native image and Micrometer Observability support. Given the short timeline, we might schedule some changes for a future version &amp;ndash; again, a smooth upgrade is our top priority here.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
 &lt;p&gt;If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-graphql"&gt;&lt;code&gt;spring-graphql&lt;/code&gt; tag&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://spring.io/projects/spring-graphql/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-graphql"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-graphql/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-graphql/docs/1.1.0-M1/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-graphql"&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring for GraphQL 1.0.2 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/20/spring-for-graphql-1-0-2-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Brian Clozel</name>
-    </author>
-    <id>tag:spring.io,2022-09-20:4914</id>
-    <updated>2022-09-20T14:45:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of everyone involved, I&amp;rsquo;m pleased to announce that Spring for GraphQL 1.0.2 is now available from Maven Central. This version will be shipped with Spring Boot 2.7.4 due for release later this week.&lt;/p&gt;
-&lt;p&gt;This &lt;a href="https://github.com/spring-projects/spring-graphql/releases/tag/v1.0.2"&gt;release includes&lt;/a&gt; a number of enhancements, documentation improvements, dependency upgrades, and a couple of bug fixes. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;
-&lt;p&gt;We&amp;rsquo;ve also published today a first milestone for the 1.1.0 release, targeting Spring Boot 3.0.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-graphql"&gt;&lt;code&gt;spring-graphql&lt;/code&gt; tag&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-graphql/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-graphql"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-graphql/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-graphql/docs/1.0.2/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-graphql"&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - September 20th, 2022</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/20/this-week-in-spring-september-20th-2022" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-09-20:4913</id>
-    <updated>2022-09-20T07:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt; wherein I endeavor as best as I can to capture the latest-and-greatest in the wide, wacky, and wonderful world of Springdom! Naturally, I fail miserably basically every week. There&amp;rsquo;s no way I could hope to capture everything of note. But I persist&amp;hellip; &lt;/p&gt;
-&lt;p&gt;Are you coming to SpringOne 2022? This is our first in-person event since the pandemic &lt;em&gt;and&lt;/em&gt; it&amp;rsquo;s when we release Spring Framework 6 and Spring Boot 3, the next generation of Spring and Spring Boot respectively. It&amp;rsquo;s running 6-8 December here in my hometown of sunny San Francisco, CA! Register now at &lt;a href="https://springone.io"&gt;SpringOne.io&lt;/a&gt; and use the code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt; to get $200 off the current registration price.&lt;/p&gt;
-&lt;p&gt;So, without further ado, yet another wonderful week&amp;rsquo;s roundup! &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;[A Bootiful Podcast: big data legend, former Pivot, and friend to the Spring community, Tim Spann](&lt;a href="https://spring.io/blog/2022/09/15/"&gt;https://spring.io/blog/2022/09/15/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/14/spring-cloud-dataflow-2-9-6-released"&gt;Spring Cloud Dataflow 2.9.6 Released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/19/spring-data-2022-0-0-m6-2021-2-3-and-2021-1-7-released"&gt;Spring Data 2022.0.0-M6, 2021.2.3, and 2021.1.7 released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/19/spring-data-rest-vulnerability-cve-2022-31679"&gt;Spring Data REST Vulnerability (CVE-2022-31679)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/15/spring-framework-6-0-0-m6-and-5-3-23-available-now"&gt;Spring Framework 6.0.0-M6 and 5.3.23 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/19/spring-security-6-0-0-m7-and-5-8-0-m3-are-released"&gt;Spring Security 6.0.0-M7 and 5.8.0-M3 are released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/16/spring-tools-4-16-0-released"&gt;Spring Tools 4.16.0 released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://blog.feedspot.com/spring_blogs/"&gt;15 Best Spring Framework Blogs and Websites in 2022&lt;/a&gt;&lt;br/&gt;a-bootiful-podcast-big-data-legend-former-pivot-and-friend-to-the-spring-community-tim-spann)&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2022/09/15/app-rollout-features-reach-stable/"&gt;Blog: Kubernetes 1.25: Two Features for Apps Rollouts Graduate to Stable&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/711688693/0/baeldung~Difference-Between-ClassgetResource-and-ClassLoadergetResource"&gt;Difference Between Class.getResource() and ClassLoader.getResource()&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/712177184/0/baeldung~Map-a-JSON-POST-to-Multiple-Spring-MVC-Parameters/"&gt;Map a JSON POST to Multiple Spring MVC Parameters&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I&amp;rsquo;m honored to be included in a list of &lt;a href="https://biztechmagazine.com/article/2022/09/30-small-business-it-influencers-worth-following-2022"&gt;30 Small Business IT Influencers Worth Following in 2022&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
