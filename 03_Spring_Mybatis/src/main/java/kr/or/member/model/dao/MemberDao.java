@@ -1,6 +1,7 @@
 package kr.or.member.model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -29,11 +30,6 @@ public class MemberDao {
 		return result;
 	}
 
-	public Member selectOneMember(String memberId) {
-		Member m = sqlSession.selectOne("member.selectOneMemberId", memberId);
-		return m;
-	}
-
 	public int updateMember(Member m) {
 		int result = sqlSession.update("member.updateMember", m);
 		return result;
@@ -45,7 +41,35 @@ public class MemberDao {
 	}
 
 	public ArrayList<Member> searchMemberName(String memberName) {
-		List list = sqlSession.selectList("member.selectMemberName");
+		List list = sqlSession.selectList("member.searchMemberName", memberName);
+		return (ArrayList<Member>) list;
+	}
+
+	public ArrayList<Member> searchMember1(HashMap<String, Object> map) {
+		List list = sqlSession.selectList("member.searchMember1", map);
+		return (ArrayList<Member>) list;
+	}
+
+	public ArrayList<Member> searchMember2(Member m) {
+		List list = sqlSession.selectList("member.searchMember2", m);
+		return (ArrayList<Member>) list;
+	}
+
+	public ArrayList<String> searchAllMemberId() {
+		List list = sqlSession.selectList("member.searchAllMemberId");
+		return (ArrayList<String>) list;
+	}
+
+	public ArrayList<Member> searchMember3(String[] memberId) {
+		List list = sqlSession.selectList("member.searchMember3", memberId);
+//		HashMap<String, Object> map = new HashMap<String, Object>();
+//		map.put("array", memberId);
+//		List list = sqlSession.selectList("member.searchMember3", map);
+		return (ArrayList<Member>) list;
+	}
+
+	public ArrayList<Member> searchMember4() {
+		List list = sqlSession.selectList("member.searchMember4");
 		return (ArrayList<Member>) list;
 	}
 

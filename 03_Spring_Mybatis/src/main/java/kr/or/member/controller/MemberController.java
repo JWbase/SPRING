@@ -60,8 +60,8 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/searchMemberId.do")
-	public String searchMemberId(String memberId, Model model) {
-		Member m = service.selectOneMember(memberId);
+	public String searchMemberId(Member member, Model model) {
+		Member m = service.selectOneMember(member);
 		if (m != null) {
 			model.addAttribute("m", m);
 			return "member/searchMember";
@@ -87,22 +87,57 @@ public class MemberController {
 			return "redirect:/";
 		}
 	}
-	
+
 	@RequestMapping(value = "/deleteMember.do")
 	public String deleteMember(String memberId, HttpSession session) {
 		int result = service.deleteMember(memberId);
-		if(result > 0) {
+		if (result > 0) {
 			session.invalidate();
 			return "redirect:/";
 		} else {
 			return "redirect:/";
 		}
 	}
-	
+
 	@RequestMapping(value = "/searchMemberName.do")
 	public String searchMemberName(String memberName, Model model) {
 		ArrayList<Member> list = service.searchMemberName(memberName);
 		model.addAttribute("list", list);
-		return "member/searchMemberName";
+		return "member/memberList";
+	}
+
+	@RequestMapping(value = "/searchMember1.do")
+	public String searchMember(String type, String keyword, Model model) {
+		ArrayList<Member> list = service.searchMember1(type, keyword);
+		model.addAttribute("list", list);
+		return "member/memberList";
+	}
+
+	@RequestMapping(value = "/searchMember2.do")
+	public String searchMember2(Member m, Model model) {
+		ArrayList<Member> list = service.searchMember2(m);
+		model.addAttribute("list", list);
+		return "member/memberList";
+	}
+
+	@RequestMapping(value = "/idList.do")
+	public String idList(Model model) {
+		ArrayList<String> list = service.searchAllMemberId();
+		model.addAttribute("list", list);
+		return "member/idList";
+	}
+
+	@RequestMapping(value = "/searchMember3.do")
+	public String searchMember3(String[] memberId, Model model) {
+		ArrayList<Member> list = service.searchMember3(memberId);
+		model.addAttribute("list", list);
+		return "member/memberList";
+	}
+	
+	@RequestMapping(value = "/searchMember4.do")
+	public String searchMember4(Model model) {
+		ArrayList<Member> list = service.searchMember4();
+		model.addAttribute("list", list);
+		return "member/memberList";
 	}
 }

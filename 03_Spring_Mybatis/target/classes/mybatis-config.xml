@@ -7,5 +7,7 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="kr.or.member.model.vo.Member" alias="m" />
+		<typeAlias type="kr.or.board.model.vo.Board" alias="b" />
+		<typeAlias type="kr.or.board.model.vo.FileVO" alias="f" />
 	</typeAliases>
 </configuration>

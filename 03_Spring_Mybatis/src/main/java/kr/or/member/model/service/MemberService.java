@@ -1,6 +1,7 @@
 package kr.or.member.model.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,10 +33,6 @@ public class MemberService {
 		return dao.insertMember(m);
 	}
 
-	public Member selectOneMember(String memberId) {
-		return dao.selectOneMember(memberId);
-	}
-
 	public int updateMember(Member m) {
 		return dao.updateMember(m);
 	}
@@ -46,6 +43,30 @@ public class MemberService {
 
 	public ArrayList<Member> searchMemberName(String memberName) {
 		return dao.searchMemberName(memberName);
+	}
+
+	public ArrayList<Member> searchMember1(String type, String keyword) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("type", type);
+		map.put("keyword", keyword);
+		ArrayList<Member> list = dao.searchMember1(map);
+		return list;
+	}
+
+	public ArrayList<Member> searchMember2(Member m) {
+		return dao.searchMember2(m);
+	}
+
+	public ArrayList<String> searchAllMemberId() {
+		return dao.searchAllMemberId();
+	}
+
+	public ArrayList<Member> searchMember3(String[] memberId) {
+		return dao.searchMember3(memberId);
+	}
+
+	public ArrayList<Member> searchMember4() {
+		return dao.searchMember4();
 	}
 
 }

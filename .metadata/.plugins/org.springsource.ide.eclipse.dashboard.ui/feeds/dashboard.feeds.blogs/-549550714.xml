@@ -5,7 +5,22 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-10-05T10:08:06Z</updated>
+  <updated>2022-10-06T07:00:00Z</updated>
+  <entry>
+    <title>A Bootiful Podcast: Spring and Java community legend Marten Deinum</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/10/06/a-bootiful-podcast-spring-and-java-community-legend-marten-deinum" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-10-06:4937</id>
+    <updated>2022-10-06T07:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, Josh Long (@starbuxman) talks to longtime Spring community member and legend Marten Deinum (@mdeinum) about scuba diving, software, Spring, community, and more. &lt;/p&gt;
+&lt;p&gt;Also: I fixed the odd silence in the middle of the last few episodes! thanks for suffering through it with me. I have no idea what went wrong but I know now how to fix it&lt;/p&gt;
+&lt;iframe title="Spring and Java community legend Marten Deinum " allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=c9jeh-12e02ad-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;p&gt;Want to meet more amazing people in our ecosystem, like Marten? SpringOne 2022 is almost here! I feel like it¡¯s that anxious, exciting time before, sort of important holiday where you get given gifts! And with it, Spring Boot 3 and Spring Framework 6. We¡¯re going to be announcing everything right here on the Spring blog, of course, but if you want a chance to learn from the source, then I hope you¡¯ll join us 6-8 December 2022, right here in my hometown of San Francisco, my favorite west coast city in the USA, and my hometown. (Psst.: If you register now, there¡¯s a $200 discount from the pass price with this code &lt;code&gt;S1VM22_Advocate_200&lt;/code&gt;.)&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Shell 2.1.2 and 3.0.0-M1 are now available</title>
     <link rel="alternate" href="https://spring.io/blog/2022/10/05/spring-shell-2-1-2-and-3-0-0-m1-are-now-available" />
@@ -886,24 +901,6 @@ Artem&lt;/p&gt;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;While the project is in the experimental phase, there is a high level of unit and integration test coverage and we expect you to have  a solid and smooth experience. That being said, when/if you run into any problems please report them on our &lt;a href="https://github.com/spring-projects-experimental/spring-pulsar/issues"&gt;Github issue tracker&lt;/a&gt;. If you have general feedback or want to discuss something else related to the release please use the &lt;a href="https://github.com/spring-projects-experimental/spring-pulsar/discussions/131"&gt;Github release discussion&lt;/a&gt; or for other general feedback feel free to open a &lt;a href="https://github.com/spring-projects-experimental/spring-pulsar/discussions/new"&gt;new discussion&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring for GraphQL 1.1.0-M1 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/09/20/spring-for-graphql-1-1-0-m1-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Brian Clozel</name>
-    </author>
-    <id>tag:spring.io,2022-09-20:4915</id>
-    <updated>2022-09-20T14:47:00Z</updated>
-    <content type="html">&lt;p&gt;I&amp;rsquo;m pleased to announce the first milestone release of Spring for GraphQL 1.1.0 is now available from our &lt;a href="https://repo.spring.io/milestone"&gt;Milestone repository&lt;/a&gt;. This version will be shipped with Spring Boot 3.0.0-M5 due for release later this week.&lt;/p&gt;
-&lt;p&gt;Spring Boot 3.0 is around the corner and the community is expecting a compatible Spring for GraphQL version to go with it. Currently, &lt;a href="https://spring.io/blog/2022/05/24/preparing-for-spring-boot-3-0"&gt;the best way to prepare for the Spring Boot 3.0 upgrade&lt;/a&gt; is to upgrade to Spring Boot 2.7 and Java 17, but Spring Boot 3.0 has new baseline requirements, namely Java 17, Jakarta APIs and Spring Framework 6.0.&lt;/p&gt;
-&lt;p&gt;Given that Spring for GraphQL 1.0.0 was released towards the end of May this year, we didn&amp;rsquo;t feel we would have enough time nor feedback to go with a major release of the project for Boot 3.0. This is why the goal of the 1.1 release is simply to adapt to the new baseline requirements and provide a smooth upgrade to Spring Boot 3.0 for existing projects.&lt;/p&gt;
-&lt;p&gt;This first milestone brings those foundational changes: the Java 17, Jakarta APIs, and a Spring Framework 6.0 baseline. We&amp;rsquo;re also taking the opportunity to upgrade to GraphQL Java 19.x &amp;ndash; a painless upgrade on our side, thanks to the GraphQL Java team! We&amp;rsquo;ve also replaced our internally developed &lt;a href="https://docs.spring.io/spring-graphql/docs/1.0.1/reference/html/#execution-context"&gt;context propagation mechanism&lt;/a&gt; with the new &lt;a href="https://github.com/spring-projects/spring-graphql/issues/459"&gt;Micrometer Context Propagation&lt;/a&gt; library, that&amp;rsquo;s intended for use broadly across Spring projects. It allows Spring applications to propagate context across various such mechanisms, e.g. &lt;code&gt;ThreadLocal&lt;/code&gt;, Reactor &lt;code&gt;Context&lt;/code&gt;, &lt;code&gt;GraphQLContext&lt;/code&gt;, and others.&lt;/p&gt;
-&lt;p&gt;In the next milestones, we will consider how we can adapt our current arrangement with important themes in Spring Boot 3.0: GraalVM native image and Micrometer Observability support. Given the short timeline, we might schedule some changes for a future version &amp;ndash; again, a smooth upgrade is our top priority here.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-graphql"&gt;&lt;code&gt;spring-graphql&lt;/code&gt; tag&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-graphql/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-graphql"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-graphql/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-graphql/docs/1.1.0-M1/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-graphql"&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
