@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,14 +12,10 @@
 				<table>
 					<tr>
 						<th>제목</th>
-						<td><input type="text" name="boardTitle"
-							value="${b.boardTitle }" style="outline-style: none;"> <input
-							type="hidden" name="boardNo" value="${b.boardNo }">
+						<td><input type="text" name="boardTitle" value="${b.boardTitle }" style="outline-style: none;"> <input type="hidden" name="boardNo" value="${b.boardNo }"></td>
+					</tr>
 					<tr>
-						<td colspan="2"
-							style="text-align: left; padding: 0; padding-top: 8px;"><textarea
-								id="boardContent" name="boardContent"><${b.boardContent }></textarea>
-						</td>
+						<td colspan="2" style="text-align: left; padding: 0; padding-top: 8px;"><textarea id="boardContent" name="boardContent"><${b.boardContent }></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="2">

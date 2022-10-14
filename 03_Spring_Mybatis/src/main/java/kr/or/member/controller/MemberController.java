@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
 
 import kr.or.member.model.service.MemberService;
 import kr.or.member.model.vo.Member;
@@ -139,5 +142,28 @@ public class MemberController {
 		ArrayList<Member> list = service.searchMember4();
 		model.addAttribute("list", list);
 		return "member/memberList";
+	}
+	
+	@ResponseBody // 페이지 이동이아닌 데이터자체로 리턴하고 싶을 때(비동기요청)
+	@RequestMapping(value = "/idcheck.do")
+	public String idCheck(Member m) {
+		Member member = service.selectOneMember(m);
+		if(member == null) {
+			// 사용가능한 아이디
+			return "0";
+		} else {
+			// 사용 불가능한 아이디
+			return "1";
+		}
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/ajaxAllMember.do", produces = "application/json;charset=utf-8")
+	public String ajaxAllMember() {
+		ArrayList<Member> list = service.selectAllMember();
+		Gson gson = new Gson();
+		String result = gson.toJson(list);
+		System.out.println(result);
+		return result;
 	}
 }

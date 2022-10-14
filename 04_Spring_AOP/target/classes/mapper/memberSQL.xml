@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+	<select id="selectOneMember" parameterType="m" resultType="m">
+		select
+		member_no as memberNo,
+		member_id as memberId,
+		member_pw as
+		memberPw,
+		member_name as memberName,
+		phone,
+		email
+		from member_tbl
+		where
+		member_id = #{memberId}
+		<if test="memberPw != null">
+			and member_pw = #{memberPw}
+		</if>
+	</select>
+	<select id="selectAllMember" resultType="m">
+		select
+		member_no as
+		memberNo,
+		member_id as memberId,
+		member_pw as memberPw,
+		member_name as
+		memberName,
+		phone,
+		email
+		from member_tbl
+	</select>
+
+	<insert id="insertMember" parameterType="m"> <!-- insert / update / delete는 무조건 int형식이기 때문에 결과처리 안적음 -->
+		insert into member_tbl
+		values(member_seq.nextval,#{memberId},#{memberPw},#{memberName},#{phone},#{email})
+	</insert>
+
+	<update id="updateMember" parameterType="m">
+		update member_tbl
+		set
+		phone = #{phone}
+		where member_id = #{memberId}
+	</update>
+
+	<delete id="deleteMember" parameterType="string">
+		delete from member_tbl
+		where member_id = #{memberId}
+	</delete>
+
+	<select id="searchMemberName" parameterType="string"
+		resultType="m">
+		select
+		member_no as memberNo,
+		member_id as memberId,
+		member_pw as memberPw,
+		member_name as memberName,
+		phone,
+		email
+		from
+		member_tbl
+		where member_name like '%'||#{_parameter}||'%'
+	</select>
+
+	<select id="searchMember1" parameterType="map" resultType="m">
+		select
+		member_no as memberNo,
+		member_id as memberId,
+		member_pw as
+		memberPw,
+		member_name as memberName,
+		phone,
+		email
+		from member_tbl
+		<choose>
+			<when test="type.equals('id')">
+				where member_id = #{keyword}
+			</when>
+			<when test="type.equals('name')">
+				where member_name like '%'||#{keyword}||'%'
+			</when>
+		</choose>
+	</select>
+
+	<select id="searchMember2" parameterType="m" resultType="m">
+		select
+		member_no as memberNo,
+		member_id as memberId,
+		member_pw as
+		memberPw,
+		member_name as memberName,
+		phone,
+		email
+		from member_tbl
+		<trim prefix="where" prefixOverrides="and|or">
+			<if test="!memberId.equals('')">
+				member_id like '%'||#{memberId}||'%'
+			</if>
+			<if test="!memberName.equals('')">
+				and member_name like '%'||#{memberName}||'%'
+			</if>
+		</trim>
+
+		<!-- <choose> <when test="memberName.equals('') and !memberId.equals('')"> 
+			where member_id like '%'||#{memberId}||'%' </when> <when test="!memberName.equals('') 
+			and memberId.equals('')"> where member_name like '%'||#{memberName}||'%' 
+			</when> <otherwise> where member_id like '%'||#{memberId}||'%' and member_name 
+			like '%'||#{memberName}||'%' </otherwise> </choose> -->
+	</select>
+
+	<select id="searchAllMemberId" resultType="string">
+		select
+		member_id
+		from
+		member_tbl
+	</select>
+
+	<select id="searchMember3" resultType="m" parameterType="map">
+		select
+		member_no as memberNo,
+		member_id as memberId,
+		member_pw as
+		memberPw,
+		member_name as memberName,
+		phone,
+		email
+		from member_tbl
+		where
+		member_id in
+		<foreach collection="array" item="memberId" open="(" close=")"
+			separator=",">
+			#{memberId}
+		</foreach>
+	</select>
+
+	<select id="searchMember4" resultType="m">
+		select
+		member_no as
+		memberNo,
+		member_id as memberId,
+		member_pw as
+		memberPw,
+		member_name as
+		memberName,
+		phone,
+		email
+		from member_tbl
+		where
+		member_no <![CDATA[<]]>20
+	</select>
+
+	<update id="changePw" parameterType="m">
+		update member_tbl set
+		member_pw = #{memberPw}
+		where member_no = #{memberNo}
+	</update>
+
+	<select id="findPwMember" parameterType="m" resultType="m">
+		select
+		member_no as memberNo,
+		member_id as memberId
+		from member_tbl
+		where
+		member_id =
+		#{memberId}
+		and email = #{email}
+	</select>
+</mapper>

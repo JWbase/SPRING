@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -29,9 +28,11 @@
 		</tr>
 		<tr>
 			<th>첨부파일</th>
-			<td colspan="5"><c:forEach items="${b.fileList }" var="f">
+			<td colspan="5">
+				<c:forEach items="${b.fileList }" var="f">
 					<a href="/boardFileDown.do?fileNo=${f.fileNo}">${f.filename }</a>
-				</c:forEach></td>
+				</c:forEach>
+			</td>
 		</tr>
 		<tr>
 			<th>내용</th>
